@@ -25,7 +25,7 @@
                 </thead>
 
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                    @foreach ($editorials as $editorial)
+                    @forelse ($editorials as $editorial)
                         <tr class="odd:bg-gray-50 dark:odd:bg-gray-800/50 mx-auto px-auto">
 
                             <td class="whitespace-nowrap px-4 py-3 font-medium text-gray-900 dark:text-white">
@@ -66,7 +66,13 @@
                             </td>
 
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr class="odd:bg-gray-50 dark:odd:bg-gray-800/50 mx-auto px-auto">
+                            <td class="whitespace-nowrap px-4 py-3 font-medium text-gray-900 dark:text-white">
+                                No hay datos
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
