@@ -21,6 +21,7 @@ class EditorialIndex extends Component
 
     public function showEdModal()
     {
+        $this->resetValidation();
         $this->reset();
         $this->showingEdModal = true;
     }
@@ -29,8 +30,9 @@ class EditorialIndex extends Component
     {
         $this->validate([
             'newImage' => 'image|max:2048', // 1MB Max
-            'name' => 'required'
+            'name' => 'required|unique:editorials,name',
         ]);
+
         $image = $this->newImage->store('public/images');
 
         Editorial::create([
@@ -53,7 +55,7 @@ class EditorialIndex extends Component
     public function updateEd()
     {
         $this->validate([
-            'name' => 'required'
+            'name' => 'required|unique:editorials,name,' . $this->editorial->id,
         ]);
 
         $image = $this->editorial->image;
@@ -63,8 +65,9 @@ class EditorialIndex extends Component
 
         $this->editorial->update([
             'name' => $this->name,
-            'image' => $image
+            'image' => $image,
         ]);
+
         $this->reset();
     }
 
