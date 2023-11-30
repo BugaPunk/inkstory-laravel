@@ -29,7 +29,7 @@ class EditorialIndex extends Component
     public function storeEd()
     {
         $this->validate([
-            'newImage' => 'image|max:2048', // 1MB Max
+            'newImage' => 'image|max:2048',
             'name' => 'required|unique:editorials,name',
         ]);
 
