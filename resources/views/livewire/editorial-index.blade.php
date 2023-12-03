@@ -97,8 +97,6 @@
                             <div class="mt-1">
                                 <x-input type="text" id="name" wire:model.lazy="name" name="name"
                                     class="w-full"></x-input>
-                                <!--input type="text" id="name" wire:model.lazy="name" name="name"
-                                    class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" /-->
                             </div>
                             @error('name')
                                 <span class="text-red-400">{{ $message }}</span>
@@ -109,11 +107,11 @@
                             </label>
                             @if ($oldImage)
                                 Previsualizacion:
-                                <img class="mx-auto px-auto w-3/4 my-1" src="{{ Storage::url($oldImage) }}">
+                                <img class="mx-auto px-auto w-2/5 my-1" src="{{ Storage::url($oldImage) }}">
                             @endif
                             @if ($newImage)
                                 Previsualizacion:
-                                <img class="mx-auto px-auto w-3/4 my-1" src="{{ $newImage->temporaryUrl() }}">
+                                <img class="mx-auto px-auto w-2/5 my-1" src="{{ $newImage->temporaryUrl() }}">
                             @endif
                             <div class="mt-1 py-2">
                                 <input type="file" id="image" wire:model="newImage" name="image"
